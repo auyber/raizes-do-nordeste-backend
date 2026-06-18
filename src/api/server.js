@@ -1,16 +1,21 @@
-// Ponto de entrada da API. Por enquanto só sobe o servidor e responde no "/".
-require('dotenv').config();
-const express = require('express');
+'use strict';
 
-const app = express();
-app.use(express.json());
-
-// Rota de teste, só pra confirmar que a API está no ar.
-app.get('/', (req, res) => {
-  res.json({ nome: 'API Raizes do Nordeste', status: 'online' });
-});
+const app = require('./app');
+const db = require('../infrastructure/database/models');
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`API rodando em http://localhost:${PORT}`);
-});
+
+async function iniciar() {
+  try {
+    await db.sequelize.authenticate();      // testa a conexao com o banco
+    console.log('[banco] conexao OK');
+    app.listen(PORT, () => {
+      console.log(`API rodando em http://localhost:${PORT}`);
+    });
+  } catch (e) {
+    console.error('Falha ao iniciar:', e.message);
+    process.exit(1);
+  }
+}
+
+iniciar();
