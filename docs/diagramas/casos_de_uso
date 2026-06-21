@@ -1,0 +1,54 @@
+digraph casos_de_uso {
+	fontname=Helvetica fontsize=18 label="Diagrama de Casos de Uso - Raizes do Nordeste" labelloc=t rankdir=LR
+	node [fontname=Helvetica]
+	"Cliente
+(App/Web/Totem)" [color="#1f4e79" fillcolor="#dbe5f1" shape=box style="filled,rounded"]
+	"Atendente
+(Balcao)" [color="#1f4e79" fillcolor="#dbe5f1" shape=box style="filled,rounded"]
+	Cozinha [color="#1f4e79" fillcolor="#dbe5f1" shape=box style="filled,rounded"]
+	"Gerente /
+Administrador" [color="#1f4e79" fillcolor="#dbe5f1" shape=box style="filled,rounded"]
+	"Gateway de
+Pagamento (Externo)" [color="#1f4e79" fillcolor="#dbe5f1" shape=box style="filled,rounded"]
+	subgraph cluster_sistema {
+		color="#1f4e79" fontcolor="#1f4e79" label="Sistema Back-end (API)" style=rounded
+		"Autenticar (login)" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+		"Consultar cardapio" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+		"Realizar pedido" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+		"Solicitar pagamento" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+		"Atualizar status do pedido" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+		"Cancelar pedido" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+		"Gerenciar estoque" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+		"Gerenciar produtos/unidades" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+		"Consultar fidelidade" [color="#1f4e79" fillcolor=white shape=ellipse style=filled]
+	}
+	"Cliente
+(App/Web/Totem)" -> "Autenticar (login)"
+	"Cliente
+(App/Web/Totem)" -> "Consultar cardapio"
+	"Cliente
+(App/Web/Totem)" -> "Realizar pedido"
+	"Cliente
+(App/Web/Totem)" -> "Solicitar pagamento"
+	"Cliente
+(App/Web/Totem)" -> "Cancelar pedido"
+	"Cliente
+(App/Web/Totem)" -> "Consultar fidelidade"
+	"Atendente
+(Balcao)" -> "Autenticar (login)"
+	"Atendente
+(Balcao)" -> "Realizar pedido"
+	"Atendente
+(Balcao)" -> "Atualizar status do pedido"
+	"Atendente
+(Balcao)" -> "Gerenciar estoque"
+	Cozinha -> "Atualizar status do pedido"
+	"Gerente /
+Administrador" -> "Gerenciar produtos/unidades"
+	"Gerente /
+Administrador" -> "Gerenciar estoque"
+	"Gerente /
+Administrador" -> "Atualizar status do pedido"
+	"Gateway de
+Pagamento (Externo)" -> "Solicitar pagamento"
+}
