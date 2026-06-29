@@ -28,7 +28,7 @@ real em banco, autenticação JWT, autorização por perfis e padrão de erro co
 git clone https://github.com/auyber/raizes-do-nordeste-backend.git
 
 # 2) Entrar na pasta do projeto
-cd raizes-backend
+cd raizes-do-nordeste-backend
 
 # 3) Instalar as dependências
 npm install
