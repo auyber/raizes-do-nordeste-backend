@@ -24,22 +24,25 @@ real em banco, autenticação JWT, autorização por perfis e padrão de erro co
 ## 2. Como configurar e executar (passo a passo)
 
 ```bash
-# 1) Entrar na pasta do projeto
+# 1) Clonar o repositório
+git clone https://github.com/auyber/raizes-do-nordeste-backend.git
+
+# 2) Entrar na pasta do projeto
 cd raizes-backend
 
-# 2) Instalar as dependências
+# 3) Instalar as dependências
 npm install
 
-# 3) Criar o arquivo de variáveis de ambiente a partir do exemplo
+# 4) Criar o arquivo de variáveis de ambiente a partir do exemplo
 #    Windows:
 copy .env.example .env
 #    Linux/Mac:
 cp .env.example .env
 
-# 4) Criar as tabelas (migrations) e popular dados de teste (seed)
+# 5) Criar as tabelas (migrations) e popular dados de teste (seed)
 npm run setup
 
-# 5) Iniciar a API
+# 6) Iniciar a API
 npm start
 #   ou, em modo desenvolvimento (reinicia ao salvar):
 npm run dev
